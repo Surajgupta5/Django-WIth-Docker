@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  db:
+    environment:
+      POSTGRES_DB: project2
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Suraj@123
+    restart: always
+    image: postgres:alpine
+    expose:
+      - "5432"
+  userapp:
+    environment:
+      DATABASE_URL: postgres://postgres:Suraj@123@db/project2
+      DJANGO_MANAGEPY_MIGRATE: "on"
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    links:
+      - db:db
+    ports:
+      - "8000:8000"

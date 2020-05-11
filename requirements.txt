@@ -1,0 +1,6 @@
+python>=2.7.5
+django>=1.11.29
+djangorestframework>=3.9.4
+wheel>=0.34.2
+uwsgi>=2.0.18,<2.1.0  
+psycopg2-binary>=2.8.5
